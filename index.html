@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World</title>
+    <meta charset=utf-8 />
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto+Slab:300&subset=vietnamese'>
+    <script>
+    $(function(){
+        center();
+        loop();
+        $(window).resize(function(){center();loop()});
+
+        function center(){
+                var y = $(window).width();
+                var x = $(window).height();
+                $('.center').css({left:(y-200)/2,top:((x-200)/2)-60});
+                $('.name').css({left:((y-$('.name').width())/2),top:((x-$('.name').height())/2)+240});
+                $('.ptop').css({left:((y-$('.ptop').width())/2),top:((x-$('.ptop').height())/2)-60});
+        };
+
+
+        function loop() {
+            var pos = $('.center').position(),
+                radiusSat = $('#sat1').width() * 0.5,
+                radius = $('.center').width() * 0.5,
+                cx = pos.left + radius,
+                cy = pos.top + radius,
+                x, y, angle = 270, angles = [],
+                spc = 360 / 8,
+                deg2rad = Math.PI / 180,
+                m, n, i = 0;
+
+            for(;i < 8; i++) {
+                angles.push(angle);
+                angle += spc;
+            }
+
+            radius += (radiusSat + 30);
+            for(var i = 0; i < angles.length; i++) {
+
+                angle = angles[i];
+
+                x = cx + radius * Math.cos(angle * deg2rad);
+                y = cy + radius * Math.sin(angle * deg2rad);
+
+                $('#sat' + i).css({left:x - radiusSat, top:y - radiusSat});
+                $('#asat' + i).css({left:x - radiusSat, top:y - radiusSat});
+                if (angles[i] > 720) angles[i] = 0;
+            }
+        }
+
+
+        $('.centerc').click(function() {
+            $('#sat0, #sat1, #sat2, #sat3, #sat4, #sat5, #sat6, #sat7').css('display', 'inline');
+            $('.centerc').addClass('animated zoomOut');
+            setTimeout(function() {$('.centera').addClass('animated zoomIn')}, 700);
+            setTimeout(function() {$('#sat0').addClass('animated zoomIn')}, 1300);
+            setTimeout(function() {$('#sat1').addClass('animated zoomIn')}, 1400);
+            setTimeout(function() {$('#sat2').addClass('animated zoomIn')}, 1500);
+            setTimeout(function() {$('#sat3').addClass('animated zoomIn')}, 1600);
+            setTimeout(function() {$('#sat4').addClass('animated zoomIn')}, 1700);
+            setTimeout(function() {$('#sat5').addClass('animated zoomIn')}, 1800);
+            setTimeout(function() {$('#sat6').addClass('animated zoomIn')}, 1900);
+            setTimeout(function() {$('#sat7').addClass('animated zoomIn')}, 2000);
+            setTimeout(function() {$('.name').addClass('animated zoomIn')}, 2100);
+            setTimeout(function() {$('.centerc').css('display', 'none')}, 700);
+            setTimeout(function() {
+
+                $('#sat3').click(function(){
+                    window.open("https://hello.firefox.com/jxPLGoLVKE4");
+                });
+                $('#sat4').click(function(){
+                    window.open("https://twitter.com/nntit");
+                });
+                $('#sat5').click(function(){
+                    window.open("https://fb.me/nnt1289");
+                });
+
+                $('#sat0').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>About</p>");
+                    $('#asat0').css({background:"#ff0000"}).animate({
+                        borderBottomRightRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#asat0').animate({
+                        borderBottomRightRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat1').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>My Works</p>");
+                    $('#sat1').css({background:"#ff0000"}).animate({
+                        borderBottomLeftRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#sat1').animate({
+                        borderBottomLeftRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat2').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>Contact</p>");
+                    $('#asat2').css({background:"#ff0000"}).animate({
+                        borderBottomLeftRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#asat2').animate({
+                        borderBottomLeftRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat3').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>Firefox Hello</p>");
+                    $('#sat3').css({background:"#ff0000"}).animate({
+                        borderTopLeftRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#sat3').animate({
+                        borderTopLeftRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat4').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>Twitter</p>");
+                    $('#asat4').css({background:"#ff0000"}).animate({
+                        borderTopLeftRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#asat4').animate({
+                        borderTopLeftRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat5').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>Facebook</p>");
+                    $('#sat5').css({background:"#ff0000"}).animate({
+                        borderTopRightRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#sat5').animate({
+                        borderTopRightRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat6').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>Message</p>");
+                    $('#asat6').css({background:"#ff0000"}).animate({
+                        borderTopRightRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#asat6').animate({
+                        borderTopRightRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+                $('#sat7').hover(function() {
+                    $('.centerb').css({visibility:"visible"});
+                    $('.ptop').append("<p>Profile</p>");
+                    $('#sat7').css({background:"#ff0000"}).animate({
+                        borderBottomRightRadius: 0
+                    },150);
+                }, function() {
+                    $('.centerb').css({visibility:"hidden"});
+                    $('.ptop').empty();
+                    $('#sat7').animate({
+                        borderBottomRightRadius: 30
+                    },0).css({background:"#eae6ff"});
+                });
+            },2100);
+        });
+        $('.bt_send').click(function() {
+            var aname = $('.txt_name').val();
+            var amail = $('.txt_mail').val();
+            var ame = $('.txt_me').val();
+            var csend = 0;
+            var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+            if (aname == ""){
+                $('.div_name').addClass('has-warning has-feedback');
+                $('.txt_name').after('<span class="span_txt_name glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+                csend--;
+            }else{
+                $('.div_name').removeClass('has-warning has-feedback');
+                $('.span_txt_name').remove();
+                csend++;
+            };
+            function IsEmail(email) {
+                var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if(regex.test(email)) {
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+            if ((amail == "") || IsEmail(amail)){
+                $('.div_mail').addClass('has-warning has-feedback');
+                $('.txt_mail').after('<span class="span_txt_mail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+                csend--;
+            }else{
+                $('.div_mail').removeClass('has-warning has-feedback');
+                $('.span_txt_mail').remove();
+                csend++;
+            };
+            if (ame == "") {
+                $('.div_me').addClass('has-warning has-feedback');
+                $('.txt_me').after('<span class="span_txt_me glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+                csend--;
+            }else{
+                $('.div_me').removeClass('has-warning has-feedback');
+                $('.span_txt_me').remove();
+                csend++;
+            };
+            if (csend == 3){
+                $.post( "http://nntit.freevnn.com/mail2.php", { to: amail, su: aname, me: ame })
+                alert( "Message has been sent" );
+            }
+        });
+        $('.bt_reset').click(function() {
+            $('.txt_name').val("");
+            $('.txt_mail').val("");
+            $('.txt_me').val("");
+            $('.div_name').removeClass('has-warning has-feedback');
+            $('.span_txt_name').remove();
+            $('.div_mail').removeClass('has-warning has-feedback');
+            $('.span_txt_mail').remove();
+            $('.div_me').removeClass('has-warning has-feedback');
+            $('.span_txt_me').remove();
+        });
+    });
+
+    </script>
+</head>
+<body>
+    <style type="text/css" media="screen">
+        body{
+            background:#1A1E24;
+            font-family: 'Roboto Slab', serif
+        }
+        label{
+            font-weight:300;
+        }
+        p{
+            color: #00ffe6;
+        }
+        .center {
+            position:fixed;
+            width:200px;
+            height:200px;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .centera{
+            background:url("http://i1063.photobucket.com/albums/t517/nnt1289/479980.jpg");
+            opacity: 0;
+        }
+        .centerb{
+            background:#ff0000;
+            opacity:0.5;
+            visibility: hidden;
+        }
+        .centerc{
+            background:#ff0000;
+            font-size: 26px;
+            text-align:center;
+            padding-top: 80px;
+            color: #00ffe6;
+        }
+        #sat0, #sat1, #sat2, #sat3, #sat4, #sat5, #sat6, #sat7 {
+            width:60px;
+            height:60px;
+            position:fixed;
+            background:#eae6ff;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            opacity: 0;
+            display: none;
+
+        }
+        .satt2{
+            width:60px;
+            height:60px;
+            position:fixed;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        #sat0:hover, #sat1:hover, #sat2:hover, #sat3:hover, #sat4:hover, #sat5:hover, #sat6:hover, #sat7:hover {
+            background:#ff0000;
+        }
+        .name{
+            opacity: 0;
+        }
+        .ptop{
+            position:fixed;
+            height:38px;
+            width:200px;
+        }
+        .ptop p{
+            font-family: 'Roboto Slab', serif;
+            text-align:center;
+            font-size: 26px;
+        }
+
+        @-webkit-keyframes zoomIn {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .zoomIn {
+            -webkit-animation-name: zoomIn;
+            animation-name: zoomIn;
+        }
+        @-webkit-keyframes zoomOut {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes zoomOut {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        .zoomOut {
+            -webkit-animation-name: zoomOut;
+            animation-name: zoomOut;
+        }
+        .animated {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .animated.infinite {
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+        .animated.hinge {
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+        }
+
+    </style>
+    <div class="center centera"></div>
+    <div class="center centerb"></div>
+    <div class="ptop"></div>
+    <div class="center centerc" id='divclick'>Click Me</div>
+
+    <div class="satt2" id="asat0"></div>
+    <div class="satt" id="sat0" type="button" data-toggle="modal" data-target="#dlabout">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/user.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat1"></div>
+    <div class="satt" id="sat1" type="button" data-toggle="modal" data-target="#dlworks">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/briefcase.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat2"></div>
+    <div class="satt" id="sat2" type="button" data-toggle="modal" data-target="#dlcontast">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/contact.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat3"></div>
+    <div class="satt" id="sat3">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/headset.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat4"></div>
+    <div class="satt" id="sat4">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/twitter.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat5"></div>
+    <div class="satt" id="sat5">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/facebook.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat6"></div>
+    <div class="satt" id="sat6" type="button" data-toggle="modal" data-target="#dlemail">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/message.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+    <div class="satt2" id="asat7"></div>
+    <div class="satt" id="sat7"type="button" data-toggle="modal" data-target="#dlProfile">
+        <img src="http://i1063.photobucket.com/albums/t517/nnt1289/document.png" height="35px" width="35px" style="margin:12.5px" />
+    </div>
+
+    <div class="name" style="position:fixed">
+        <p style="font-family: 'Roboto Slab', serif;text-align:center;font-size: 22px;">Nguyễn Ngọc Thanh</p>
+        <p style="font-family: 'Roboto Slab', serif;text-align:center;font-size: 14px;">Developer</p>
+    </div>
+    <div class="modal fade" id="dlemail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 style="font-size:20px" class="modal-title" id="myModalLabel">Contact Me</h4>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+                        <div style="font-size:12px;" class="form-group">
+                        </div>
+                        <div class="div_name form-group">
+                            <label for="exampleInputEmail1">Full Name</label>
+                            <input type="text" class="form-control txt_name" id="exampleInputEmail1" placeholder="Enter name">
+                        </div>
+                        <div class="div_mail form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control txt_mail" id="exampleInputEmail1" placeholder="Enter mail">
+                        </div>
+                        <div class="div_me form-group">
+                            <label for="exampleInputEmail1">Message</label>
+                            <textarea style="resize: none" class="form-control txt_me" rows="7"></textarea>
+                        </div>
+                        <div style="font-size:12px;" class="form-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default bt_reset">Reset</button>
+                    <button type="button" class="btn btn-primary bt_send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlabout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 style="font-size:20px" class="modal-title" id="myModalLabel">About</h4>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+                        Chào các bạn. Sau 1 tuần vật vã suy nghĩ vẫn chưa nghĩ ra viết gì vào đây cho đỡ trống. Thôi thì mình cũng xin tự giới thiệu. <br>
+                        Mình là Nguyễn Ngọc Thanh. Hiện đang theo học ngành CNTT tại trường Đại Học Công Nghệ Đồng Nai. Mục tiêu sau này thành 1 lập trình viên giỏi (thành hacker luôn thì càng tốt), kiếm thật nhiều tiền và cuối cùng, có 1 cuộc sống bình yên nhất có thể. <br>
+                        Thế thôi ngắn gọn súc tích. Các bán có thắc mắc hay cần giúp đỡ xin cứ liên hệ (ko free đâu nhá). Rất vui được làm quen với các bạn.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlworks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 style="font-size:20px" class="modal-title" id="myModalLabel">My works</h4>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlcontast" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 style="font-size:20px" class="modal-title" id="myModalLabel">Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+                        <b>Phone:</b> 01632679425<br>
+                        <b>Steam:</b> _Gilver__<br>
+                        <b>Email, Facebook, Firefox hello, Skyper, Mega:</b><br>
+                        nnt1289@live.com<br>
+                        <br>
+                        <img src="data:image/png;base64,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">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 style="font-size:20px" class="modal-title" id="myModalLabel">Profile</h4>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+                        <b>Name:</b> Nguyễn Ngọc Thanh<br>
+                        <b>DoB:</b> 28/11/1992<br><br>
+                        <b>Hobbies:</b><br>
+                        Internet, Computer, Programming<br>
+                        Anime, Game, destructive, sleep
+                        <br><br>
+                        <b>Experience:</b><br>
+                        C#, C++, Java, Javascript, HTML, CSS, Jade, Node.js, Expressjs, Hapi, PHP, jQuery, SQL, NoSQL(Redis, MongoDB), Ubuntu, CentOS<br>
+                        Hardware(fix, maintenance)<br>
+                        Network(cisco)
+                        <br><br>
+                        <b>Skill:</b><br>
+                        <b>Programming:</b> ★★★✰✰<br>
+                        <b>Hardware:</b> ★★★✰✰<br>
+                        <b>Network:</b> ★★★✰✰<br>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
