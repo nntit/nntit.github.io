@@ -1,0 +1,115 @@
+<span style="color: red;"><b>Lãi Xuất Này Chỉ Dành Cho Khách Hàng Vay Tín Chấp</b></span><br />
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$('#a1').change(function () {
+			tmyFunction();
+		});
+		$('#a2').change(function () {
+			tmyFunction();
+		});
+		$('#a3').change(function () {
+			tmyFunction();
+		});
+	});
+	function tmyFunction(){
+		var a1 = $('#a1').maskMoney('unmasked')[0];
+		var a2 = $('#a2').val();
+		var a3 = $('#a3').val();
+		a2 = (a2*1);
+		a3 = (a3*1);
+
+		//----------------------------------------------------------------------------------------------------------------
+		//---anh sửa công thức lại là được
+		//---a1 = tiền đề xuất
+		//---a2 = tháng vay
+		//---a3 = lãi xuất
+		//---t1 = kết quả
+
+		t1= a1 + a2 +a3;
+		
+		var string = numeral(t1).format('0,0.00');
+		$('#t5').val(string +" Triệu VNĐ");
+	}
+</script>
+<form name="frm">
+	<table class="auto-style1">
+		<tbody>
+			<tr>
+				<td>Số Tiền Vay Đề Xuất:</td>
+				<td>
+					<input id="a1" kl_virtual_keyboard_secure_input="on" type="text" /><script type="text/javascript">$("#a1").maskMoney({   precision:1,suffix: ' Triệu VNĐ'});</script>
+				</td>
+			</tr>
+			<tr>
+				<td>Thời Gian Vay Đề Xuất(6 tới 36 tháng):</td>
+				<td><input id="a2" max="36" min="6" type="number" value="12" /></td>
+			</tr>
+			<tr>
+				<td>Lãi Xuất (Bình Quân Hàng Tháng):</td>
+				<td>
+					<select id="a3">
+						<option value="1.66">1.66</option>
+						<option value="2.17">2.17</option>
+						<option value="2.95">2.95</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input onclick="tmyFunction()" type="button" value="Tính" /></td>
+			</tr>
+			<tr>
+				<td>Số Tiền Thanh Toán Hàng Tháng:</td>
+				<td>
+					<input id="t5" readonly="readonly" type="text"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<script type="text/javascript">
+	
+</script>
+<table border="1" class="auto-style1">
+	<tbody>
+		<tr style="background: #ffd800;">
+			<td>Lãi Xuất Được Tính Tùy Theo Từng Trường Hợp</td>
+			<td>Lãi Xuất</td>
+		</tr>
+		<tr>
+			<td>Vay Theo Lương Trên 7,5 triệu</td>
+			<td>1.66</td>
+		</tr>
+		<tr>
+			<td>Vay Theo Lương dưới 7,5 triệu</td>
+			<td>2.17</td>
+		</tr>
+		<tr>
+			<td>Vay Theo Bảo Hiểm Nhân Thọ</td>
+			<td>1.66</td>
+		</tr>
+		<tr>
+			<td>Vay Theo Giấy Phép Kinh Doanh</td>
+			<td>2.95</td>
+		</tr>
+		<tr style="background: #ffd800;">
+			<td>Vay Theo Hóa Đơn Điện</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>300.000đ &lt; Tiền Điện Hóa Đơn &lt; 550.000đ</td>
+			<td>2.95</td>
+		</tr>
+		<tr>
+			<td>550.000đ &lt; Tiền Điện Hóa Đơn &lt; 1.000.000đ</td>
+			<td>2.17</td>
+		</tr>
+		<tr>
+			<td>Hóa Đơn Trên 1.000.000đ</td>
+			<td>1.66</td>
+		</tr>
+	</tbody>
+</table>
