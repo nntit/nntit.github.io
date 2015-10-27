@@ -69,13 +69,10 @@
             setTimeout(function() {$('.centerc').css('display', 'none')}, 700);
             setTimeout(function() {
 
-                $('#sat3').click(function(){
-                    window.open("https://hello.firefox.com/mfTf8nTThcY");
-                });
                 $('#sat4').click(function(){
                     window.open("https://twitter.com/nntit");
                 });
-                $('#sat5').click(function(){
+                $('#sat3').click(function(){
                     window.open("https://fb.me/nnt1289");
                 });
 
@@ -107,7 +104,7 @@
                 });
                 $('#sat2').hover(function() {
                     $('.centerb').css({visibility:"visible"});
-                    $('.ptop').append("<p>Contact</p>");
+                    $('.ptop').append("<p>Projects</p>");
                     $('#asat2').css({background:"#ff0000"}).animate({
                         borderBottomLeftRadius: 0
                     },150);
@@ -120,7 +117,7 @@
                 });
                 $('#sat3').hover(function() {
                     $('.centerb').css({visibility:"visible"});
-                    $('.ptop').append("<p>Firefox Hello</p>");
+                    $('.ptop').append("<p>Facebook</p>");
                     $('#sat3').css({background:"#ff0000"}).animate({
                         borderTopLeftRadius: 0
                     },150);
@@ -146,7 +143,7 @@
                 });
                 $('#sat5').hover(function() {
                     $('.centerb').css({visibility:"visible"});
-                    $('.ptop').append("<p>Facebook</p>");
+                    $('.ptop').append("<p>Message</p>");
                     $('#sat5').css({background:"#ff0000"}).animate({
                         borderTopRightRadius: 0
                     },150);
@@ -159,7 +156,7 @@
                 });
                 $('#sat6').hover(function() {
                     $('.centerb').css({visibility:"visible"});
-                    $('.ptop').append("<p>Message</p>");
+                    $('.ptop').append("<p>Contact</p>");
                     $('#asat6').css({background:"#ff0000"}).animate({
                         borderTopRightRadius: 0
                     },150);
@@ -185,6 +182,7 @@
                 });
             },2100);
         });
+        // sent -------------------------------------------
         $('.bt_send').click(function() {
             var aname = $('.txt_name').val();
             var amail = $('.txt_mail').val();
@@ -227,6 +225,7 @@
                 csend++;
             };
             if (csend == 3){
+                // post sent -----------
                 $.post( "http://nntit.freevnn.com/mail2.php", { to: amail, su: aname, me: ame })
                 alert( "Message has been sent" );
             }
@@ -408,24 +407,24 @@
         <img src="http://nntit.github.io/img/briefcase.PNG" height="35px" width="35px" style="margin:12.5px" />
     </div>
     <div class="satt2" id="asat2"></div>
-    <div class="satt" id="sat2" type="button" data-toggle="modal" data-target="#dlcontast">
-        <img src="http://nntit.github.io/img/contact.PNG" height="35px" width="35px" style="margin:12.5px" />
+    <div class="satt" id="sat2" type="button" data-toggle="modal" data-target="#dlprojects">
+        <img src="http://nntit.github.io/img/folder.PNG" height="35px" width="35px" style="margin:12.5px" />
     </div>
     <div class="satt2" id="asat3"></div>
     <div class="satt" id="sat3">
-        <img src="http://nntit.github.io/img/headset.PNG" height="35px" width="35px" style="margin:12.5px" />
+        <img src="http://nntit.github.io/img/imgf.PNG" height="35px" width="35px" style="margin:12.5px" />
     </div>
     <div class="satt2" id="asat4"></div>
     <div class="satt" id="sat4">
         <img src="http://nntit.github.io/img/imgt.PNG" height="35px" width="35px" style="margin:12.5px" />
     </div>
     <div class="satt2" id="asat5"></div>
-    <div class="satt" id="sat5">
-        <img src="http://nntit.github.io/img/imgf.PNG" height="35px" width="35px" style="margin:12.5px" />
+    <div class="satt" id="sat5" type="button" data-toggle="modal" data-target="#dlemail">
+        <img src="http://nntit.github.io/img/message.PNG" height="35px" width="35px" style="margin:12.5px" />
     </div>
     <div class="satt2" id="asat6"></div>
-    <div class="satt" id="sat6" type="button" data-toggle="modal" data-target="#dlemail">
-        <img src="http://nntit.github.io/img/message.PNG" height="35px" width="35px" style="margin:12.5px" />
+    <div class="satt" id="sat6" type="button" data-toggle="modal" data-target="#dlcontast">
+        <img src="http://nntit.github.io/img/contact.PNG" height="35px" width="35px" style="margin:12.5px" />
     </div>
     <div class="satt2" id="asat7"></div>
     <div class="satt" id="sat7"type="button" data-toggle="modal" data-target="#dlProfile">
@@ -481,9 +480,9 @@
                 </div>
                 <div class="modal-body">
                     <div role="form">
-                        <!--------------------------------------------------
+                        <!-- -----------------------------------------------
                             About
-                        --------------------------------------------------->
+                        ------------------------------------------------- -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -501,9 +500,9 @@
                 </div>
                 <div class="modal-body">
                     <div role="form">
-                        <!--------------------------------------------------
+                        <!-- -----------------------------------------------
                             My works
-                        --------------------------------------------------->
+                        ------------------------------------------------ -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -521,9 +520,9 @@
                 </div>
                 <div class="modal-body">
                     <div role="form">
-                        <!--------------------------------------------------
+                        <!-- -----------------------------------------------
                             Contact
-                        --------------------------------------------------->
+                        ------------------------------------------------ -->
                         <b>Steam:</b> _Gilver__<br>
                         <b>Email, Facebook, Firefox hello, Skyper, Mega:</b><br>
                         nnt1289@live.com<br>
@@ -546,9 +545,9 @@
                 </div>
                 <div class="modal-body">
                     <div role="form">
-                        <!--------------------------------------------------
+                        <!-- -----------------------------------------------
                             Profile
-                        --------------------------------------------------->
+                        ------------------------------------------------ -->
                         <b>Name:</b> Nguyễn Ngọc Thanh<br>
                         <b>DoB:</b> 28/11/1992<br><br>
                         <b>Hobbies:</b><br>
@@ -564,6 +563,29 @@
                         <b>Programming:</b> ★★★✰✰<br>
                         <b>Hardware:</b> ★★★✰✰<br>
                         <b>Network:</b> ★★★✰✰<br>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlprojects" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 style="font-size:20px" class="modal-title" id="myModalLabel">My small projects</h4>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+                        <!-- -----------------------------------------------
+                            My small projects
+                        ------------------------------------------------ -->
+
 
 
                     </div>
