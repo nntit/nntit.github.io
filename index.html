@@ -3,6 +3,7 @@
 <head>
     <title>Hello World</title>
     <meta charset=utf-8 />
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -226,7 +227,14 @@
             };
             if (csend == 3){
                 // post sent -----------
-                $.post( "http://nntit.freevnn.com/mail2.php", { to: amail, su: aname, me: ame })
+                var myFirebaseRef = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com/");
+                    myFirebaseRef.set({
+                        messager: {
+                            Name: aname,
+                            Email: amail,
+                            Message: ame
+                        }
+                    });
                 alert( "Message has been sent" );
             }
         });
@@ -524,7 +532,7 @@
                             Contact
                         ------------------------------------------------ -->
                         <b>Steam:</b> _Gilver__<br>
-                        <b>Email, Facebook, Firefox hello, Skyper, Mega:</b><br>
+                        <b>Email, Skyper, Facebook, Firefox hello, Mega:</b><br>
                         nnt1289@live.com<br>
                         <br>
                         <img src="data:image/png;base64,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">
@@ -549,7 +557,7 @@
                             Profile
                         ------------------------------------------------ -->
                         <b>Name:</b> Nguyễn Ngọc Thanh<br>
-                        <b>DoB:</b> 28/11/1992<br><br>
+                        <b>YoB:</b> 1992<br><br>
                         <b>Hobbies:</b><br>
                         Internet, Computer, Programming<br>
                         Anime, Game, destructive, sleep

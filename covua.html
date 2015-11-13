@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>covua</title>
+    <meta charset=utf-8 />
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script>
+        $(function(){
+            var y = $(window).width();
+            var x = $(window).height();
+            
+            var banco=new Array(8)
+            for (i=0; i <8; i++)
+                banco[i]=new Array(8)
+            banco[0][0]=
+            banco[0][1]=
+            banco[0][2]=
+            banco[0][3]=
+            banco[0][4]=
+            banco[0][5]=
+            banco[0][6]=
+            banco[0][7]=
+            banco[1][0]=
+            banco[1][1]=
+            banco[1][2]=
+            banco[1][3]=
+            banco[1][4]=
+            banco[1][5]=
+            banco[1][6]=
+            banco[1][7]=
+            banco[6][0]=
+            banco[6][1]=
+            banco[6][2]=
+            banco[6][3]=
+            banco[6][4]=
+            banco[6][5]=
+            banco[6][6]=
+            banco[6][7]=
+            banco[7][0]=
+            banco[7][1]=
+            banco[7][2]=
+            banco[7][3]=
+            banco[7][4]=
+            banco[7][5]=
+            banco[7][6]=
+            banco[7][7]=
+
+            if (y<x) {
+                mainkt(y);
+            }else{
+                mainkt(x);
+            };
+
+        });
+        function mainkt (x) {
+            ktbanco = x-(x/9);
+            ktoco = ktbanco/8;
+            $('#banco').width(x);
+            ktquan(ktoco-4);
+        }
+        function ktquan(k){
+            $('.quan').width(k);
+            $('.quan').height(k);
+        }
+        function sepbanco () {
+            
+        }
+    </script>
+    <style type="text/css">
+        .quan{
+            background-size: 620% auto;
+            position: fixed;
+        }
+        .qxed{
+            background-image: url("./img/media_black.png");
+        }
+        .qmad{
+            background-image: url("./img/media_black.png");
+        }
+        .qtuongd{
+            background-image: url("./img/media_black.png");
+        }
+        .qhaud{
+            background-image: url("./img/media_black.png");
+        }
+        .qvuad{
+            background-image: url("./img/media_black.png");
+        }
+        .qtotd{
+            background-image: url("./img/media_black.png");
+        }
+        .qxet{
+            background-image: url("./img/media_white.png");
+        }
+        .qmat{
+            background-image: url("./img/media_white.png");
+        }
+        .qtuongt{
+            background-image: url("./img/media_white.png");
+        }
+        .qhaut{
+            background-image: url("./img/media_white.png");
+        }
+        .qvuat{
+            background-image: url("./img/media_white.png");
+        }
+        .qtott{
+            background-image: url("./img/media_white.png");
+        }
+    </style>
+</head>
+<body>
+    <img id="banco" src="./img/board2.png">
+    <div class="quan qxed xed1"></div>
+    <div class="quan qmad mad1"></div>
+    <div class="quan qtuongd tuongd1"></div>
+    <div class="quan qhaud haud1"></div>
+    <div class="quan qvuad vuad1"></div>
+    <div class="quan qtuongd tuong2"></div>
+    <div class="quan qmad ma2"></div>
+    <div class="quan qxed xe2"></div>
+    <div class="quan qtotd totd1"></div>
+    <div class="quan qtotd totd2"></div>
+    <div class="quan qtotd totd3"></div>
+    <div class="quan qtotd totd4"></div>
+    <div class="quan qtotd totd5"></div>
+    <div class="quan qtotd totd6"></div>
+    <div class="quan qtotd totd7"></div>
+    <div class="quan qtotd totd8"></div>
+    <div class="quan qxet xet1"></div>
+    <div class="quan qmat mat1"></div>
+    <div class="quan qtuongt tuongt1"></div>
+    <div class="quan qvuat vuat1"></div>
+    <div class="quan qhaut haut1"></div>
+    <div class="quan qtuongt tuongt2"></div>
+    <div class="quan qmat mat2"></div>
+    <div class="quan qxet xet2"></div>
+    <div class="quan qtott tott1"></div>
+    <div class="quan qtott tott2"></div>
+    <div class="quan qtott tott3"></div>
+    <div class="quan qtott tott4"></div>
+    <div class="quan qtott tott5"></div>
+    <div class="quan qtott tott6"></div>
+    <div class="quan qtott tott7"></div>
+    <div class="quan qtott tott8"></div>
+</body>
+</html>
