@@ -233,12 +233,14 @@
                     Email: amail,
                     Message: ame
                 });*/
-                $.post( "https://discordapp.com/api/webhooks/238219663232860160/JTkbe5XMFPfRNPOIjzPC-sDQljxoLpJ7oaojR1odI-92p-G-GixdiwZHzJfURIurjb0m", { content: ame, username: aname })
+                var t1 += '<@163162462328324096>\n';
+                t1 += ame;
+                $.post( "https://discordapp.com/api/webhooks/238219663232860160/JTkbe5XMFPfRNPOIjzPC-sDQljxoLpJ7oaojR1odI-92p-G-GixdiwZHzJfURIurjb0m", { content: t1, username: "Page-github: "+ aname + " (" + amail + ")" })
                 .done(function( data ) {
-                    alert( "Data Loaded: " + data );
+                    alert( "Message has been sent" );
                 });
                 
-                alert( "Message has been sent" );
+                
             }
         });
         $('.bt_reset').click(function() {
