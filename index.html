@@ -227,11 +227,15 @@
             };
             if (csend == 3){
                 // post sent -----------
-                var myFirebaseRef = new Firebase("https://nnt-messenger-web.firebaseio.com/");
+                /*var myFirebaseRef = new Firebase("https://nnt-messenger-web.firebaseio.com/");
                 myFirebaseRef.push({
                     Name: aname,
                     Email: amail,
                     Message: ame
+                });*/
+                $.post( "https://discordapp.com/api/webhooks/238219663232860160/JTkbe5XMFPfRNPOIjzPC-sDQljxoLpJ7oaojR1odI-92p-G-GixdiwZHzJfURIurjb0m", { content: ame, username: aname })
+                .done(function( data ) {
+                    alert( "Data Loaded: " + data );
                 });
                 
                 alert( "Message has been sent" );
