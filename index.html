@@ -12,6 +12,7 @@
     $(function(){
         center();
         loop();
+        meslength();
         $(window).resize(function(){center();loop()});
 
         function center(){
@@ -233,16 +234,28 @@
                     Email: amail,
                     Message: ame
                 });*/
-                var t1 = "__**" + aname + "**__<" + amail + "> Send to " + '__<@163162462328324096>__\n';
-                t1 += ame;
-                $.post( "https://discordapp.com/api/webhooks/238219663232860160/JTkbe5XMFPfRNPOIjzPC-sDQljxoLpJ7oaojR1odI-92p-G-GixdiwZHzJfURIurjb0m", { content: t1 })
-                .done(function( data ) {
-                    alert( "Message has been sent" );
-                });
-                
-                
+                if(ame.length <= 1500){
+                    var t1 = "__**" + aname + "**__<" + amail + "> Send to " + '__<@163162462328324096>__\n';
+                    t1 += ame;
+                    $.post( "https://discordapp.com/api/webhooks/238219663232860160/JTkbe5XMFPfRNPOIjzPC-sDQljxoLpJ7oaojR1odI-92p-G-GixdiwZHzJfURIurjb0m", { content: t1 })
+                    .done(function( data ) {
+                        alert( "Message has been sent" );
+                    });
+                }
             }
         });
+        $('.txt_me').keyup(function() {
+            meslength();
+        });
+        function meslength() {
+            var ame = $('.txt_me').val();
+            $('.message-length').text("("+ame.length +"/1500)");
+            if(ame.length <= 1500){
+                $('.message-length').css("color", "#C5C5C5");
+            }else{
+                $('.message-length').css("color", "#F00");
+            }
+        }
         $('.bt_reset').click(function() {
             $('.txt_name').val("");
             $('.txt_mail').val("");
@@ -468,6 +481,7 @@
                         </div>
                         <div class="div_me form-group">
                             <label for="exampleInputEmail1">Message</label>
+                            <label for="exampleInputEmail1" class="message-length"></label>
                             <textarea style="resize: none" class="form-control txt_me" rows="7"></textarea>
                         </div>
                         <div style="font-size:12px;" class="form-group">
