@@ -235,7 +235,7 @@
                     Message: ame
                 });*/
                 if(ame.length <= 1500){
-                    var t1 = "__**" + aname + "**__<" + amail + "> Send to " + '__<@163162462328324096>__\n';
+                    var t1 = "__**" + aname + "**__<" + amail + "> Send to " + '<@163162462328324096>\n';
                     t1 += ame;
                     $.post( "https://discordapp.com/api/webhooks/238219663232860160/JTkbe5XMFPfRNPOIjzPC-sDQljxoLpJ7oaojR1odI-92p-G-GixdiwZHzJfURIurjb0m", { content: t1 })
                     .done(function( data ) {
